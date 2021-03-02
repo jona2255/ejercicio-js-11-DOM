@@ -1,5 +1,10 @@
-const selectorPalabras = document.querySelector(".palabra");
+const listaNodos = document.querySelectorAll(".palabra");
 
-selectorPalabras.addEventListener("click", (palabraSeleccionada) => {
-
-});
+for (const nodo of listaNodos) {
+  nodo.addEventListener("click", () => {
+    console.log(nodo);
+    const nodoCopiar = nodo.cloneNode(true);
+    const resultados = document.querySelector(".resultado");
+    resultados.append(nodoCopiar);
+  });
+}
