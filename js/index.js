@@ -16,3 +16,12 @@ letrasMayus(mayusculas);
 function letrasMayus(cb) {
   listaNodos[0].textContent = cb(listaNodos[0].textContent);
 }
+
+const resolucion = document.querySelector(".resultado");
+const caracter = document.querySelector(".caracteres").textContent;
+
+function numCaracteres() {
+  const sumatorio = resolucion.textContent.length;
+  caracter.textContent = sumatorio - 5;
+}
+console.log(numCaracteres());
