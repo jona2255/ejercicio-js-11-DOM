@@ -7,8 +7,12 @@ const menuDesplegable = document.querySelector("select");
 let palabraTextForm = "";
 
 textoForm.addEventListener("change", () => {
-  botonCrear.disabled = false;
-  palabraTextForm = textoForm.value;
+  if (textoForm.value.length > 0) {
+    botonCrear.disabled = false;
+    palabraTextForm = textoForm.value;
+  } else {
+    botonCrear.disabled = true;
+  }
 });
 botonCrear.addEventListener("click", (event) => {
   const palabraForm = document.createElement("li");
