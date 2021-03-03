@@ -1,5 +1,5 @@
 let listaNodos = document.querySelectorAll(".palabra");
-const listaDerecha = document.querySelectorAll(".resultado");
+const listaDerecha = document.querySelector(".resultado");
 
 const numPalabras = document.querySelector(".numero-palabras");
 const totalCaracteres = document.querySelector(".numero-caracteres");
@@ -30,6 +30,7 @@ botonCrear.addEventListener("click", (event) => {
   }
   if (palabraRepetida || palabraTextForm.includes(" ")) {
     event.preventDefault();
+    // eslint-disable-next-line no-alert
     alert("La palabra está repetida o no es válida, escribe otra por favor");
   } else {
     const palabraForm = document.createElement("li");
@@ -47,6 +48,9 @@ function copiarNodo() {
     nodo.addEventListener("click", () => {
       if (nodo.value >= 0 || nodo.value === null) {
         const nodoCopiar = nodo.cloneNode(true);
+        nodoCopiar.addEventListener("click", () => {
+          nodoCopiar.remove();
+        });
         resultados.append(nodoCopiar);
         if (nodo.value === 1) {
           nodo.value = -1;
@@ -69,12 +73,4 @@ function numCaracteres() {
   const sumatorio = resultados.textContent.length;
   caracter.textContent = sumatorio - 5;
   console.log(numCaracteres());
-}
-
-for (const nodo of listaDerecha) {
-  nodo.addEventListener("click", () => {
-    console.log(nodo);
-    const nodoBorrar = nodo.removeNode(true);
-    nodo.append(nodoBorrar);
-  });
 }
