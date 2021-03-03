@@ -1,4 +1,10 @@
 const listaNodos = document.querySelectorAll(".palabra");
+const listaDerecha = document.querySelector(".resultado");
+
+const numPalabras = document.querySelector(".numero-palabras");
+const totalCaracteres = document.querySelector(".numero-caracteres");
+const mediaPalabras = document.querySelector(".media-palabras");
+
 copiarNodo();
 function copiarNodo() {
   for (const nodo of listaNodos) {
@@ -25,3 +31,11 @@ function numCaracteres() {
   caracter.textContent = sumatorio - 5;
 }
 console.log(numCaracteres());
+
+for (const nodo of listaDerecha) {
+  nodo.addEventListener("click", () => {
+    console.log(nodo);
+    const nodoBorrar = nodo.removeNode(true);
+    nodo.append(nodoBorrar);
+  });
+}
